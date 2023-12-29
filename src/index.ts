@@ -48,6 +48,62 @@ function kgToLbs(weight: number | string): number {
         return weight * 2.0;;
     } else {
         return parseInt(weight) * 1.5;
-    } 
+    }
 }
+
+//Intersection Type
+type Draggable = {
+    drag: () => void
+};
+type Resizable = {
+    resize: () => void
+}
+
+type UIWidget = Draggable & Resizable;
+let textBox: UIWidget = {
+    drag: () => { },
+    resize: () => { }
+}
+
+//Literal Type (exact, specific)
+type Quantity = 50 | 100;
+let quantity: Quantity = 100;
+
+//Nullable Type
+function greet(word: string | null | undefined) {
+    if (word) {
+        console.log(word)
+    } else {
+        console.log("Hello | xin chào!!!");
+    }
+}
+greet(null);
+greet(undefined);
+greet("Sun CD");
+
+//Optional Chaining
+type Customer = {
+    birthDay?: Date
+};
+
+function getCustomer(id: number): Customer | null {
+    return id === 0 ? null : { birthDay: new Date() };
+}
+
+let customer = getCustomer(1);
+//First way:
+if (customer != null && customer !== undefined) {
+    console.log(customer.birthDay);
+}
+
+//Second way - Using with Optional property access operator
+let customer1 = getCustomer(2);
+console.log(customer?.birthDay?.getFullYear())
+
+//Optional element access operator
+//customers?.[0]
+
+//Optional call
+let log: any = null;
+log?.('Sun');
 

@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 let age = 20;
 if (age < 50)
     age += 10;
@@ -37,4 +38,31 @@ function kgToLbs(weight) {
         return parseInt(weight) * 1.5;
     }
 }
+let textBox = {
+    drag: () => { },
+    resize: () => { }
+};
+let quantity = 100;
+function greet(word) {
+    if (word) {
+        console.log(word);
+    }
+    else {
+        console.log("Hello | xin chào!!!");
+    }
+}
+greet(null);
+greet(undefined);
+greet("Sun CD");
+function getCustomer(id) {
+    return id === 0 ? null : { birthDay: new Date() };
+}
+let customer = getCustomer(1);
+if (customer != null && customer !== undefined) {
+    console.log(customer.birthDay);
+}
+let customer1 = getCustomer(2);
+console.log((_a = customer === null || customer === void 0 ? void 0 : customer.birthDay) === null || _a === void 0 ? void 0 : _a.getFullYear());
+let log = null;
+log === null || log === void 0 ? void 0 : log('Sun');
 //# sourceMappingURL=index.js.map
